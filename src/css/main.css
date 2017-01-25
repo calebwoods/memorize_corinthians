@@ -3,16 +3,19 @@
 @charset 'UTF-8';
 
 /* 1. Vendors */
-@import './vendor/*.css';
+@import './vendor/_normalize.css';
 
 /* 2. Configuration and helpers */
-@import './utils/*.css';
+@import './utils/_helpers.css';
+@import './utils/_variables.css';
 
 /* 3. Base stuff */
-@import 'css/base/*.css';
+@import './base/_base.css';
+@import './base/_fonts.css';
+@import './base/_typography.css';
 
-/* 4. Layout-related sections */
-@import 'css/layout/*.css';
-
-/* 5. Components */
-@import 'css/components/*.css';
+/* 4. Components */
+@import './components/_buttons.css';
+@import './components/_help.css';
+@import './components/_keyboard_shortcut_hud.css';
+@import './components/_passage.css';

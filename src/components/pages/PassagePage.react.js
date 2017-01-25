@@ -93,7 +93,6 @@ export class PassagePage extends Component {
 
     return (
       <div>
-        <KeyboardShortcutHUD />
         <div className="top-nav">
           <div className="mode-controls">
             <button className={ mode == VERSE_MODE ? "active" : ""}
