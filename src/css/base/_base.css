@@ -1,0 +1,43 @@
+/*This file contains very basic styles.*/
+
+/**
+ * Set up a decent box model on the root element
+ */
+html {
+  box-sizing: border-box;
+}
+
+/**
+ * Make all elements from the DOM inherit from the parent box-sizing
+ * Since `*` has a specificity of 0, it does not override the `html` value
+ * making all elements inheriting from the root box-sizing value
+ * See: https://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/
+ */
+*, *::before, *::after {
+  box-sizing: inherit;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: $vintage-background;
+  font-family: $ui-font-stack;
+}
+
+.wrapper {
+  color: #222222;
+  max-width: $large-width;
+  margin: 0 auto;
+  white-space: pre-wrap;
+}
+
+.app-name {
+  font-size: 1.5em;
+  padding: 0 1em;
+  text-align: center;
+  width: 100%
+}

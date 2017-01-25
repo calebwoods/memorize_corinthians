@@ -1,0 +1,23 @@
+/*This file contains all application-wide CSS variables.*/
+
+$text-font-stack: 'CenturySchoolbookBT-Roman', 'Times New Roman', serif;
+$ui-font-stack: 'Frank-Light', 'Helvetica Neue Light', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+
+$almost-black: rgba(0, 0, 0, 0.8);
+$transparent: rgba(0, 0, 0, 0);
+
+$vintage-eggy: #69BECD;
+$vintage-punchy: #F15A22;
+$vintage-gray: #323B3B;
+$vintage-white: #FFFFFF;
+$vintage-mustard: #EAC541;
+$vintage-rust: #D97D27;
+$vintage-denim: #12596D;
+$vintage-slimer: #D6DF2B;
+
+$vintage-background: #F4F6F5;
+$vintage-background-rgb: 244, 246, 245;
+
+$corner-radius: 2px;
+$default-padding: 1em 2em;
+$large-width: 978px;

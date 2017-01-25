@@ -1,0 +1,154 @@
+.top-nav {
+  background-color: $vintage-background;
+  top: 0;
+  text-align: center;
+
+  .meta-information {
+    color: $vintage-gray;
+    display: inline-flex;
+    justify-content: space-around;
+    font-size: 1.25em;
+    margin-top: 1em;
+    width: 100%;
+  }
+
+  .mode-controls {
+    display: flex;
+  }
+}
+
+.stage-controls {
+  background-color: rgba($vintage-background-rgb, .75);
+  bottom: 0;
+  box-shadow: 0 0 60px 10px $vintage-background;
+  display: flex;
+  position: fixed;
+}
+
+.top-nav,
+.stage-controls {
+  right: 0;
+  left: 0;
+  z-index: 2;
+
+  width: 100%;
+  max-width: $large-width;
+  padding: $default-padding;
+  margin: 0 auto;
+  box-sizing: border-box;
+
+  button {
+    background: $vintage-eggy;
+		border: 0;
+    border-radius: $corner-radius;
+    color: $vintage-white;
+    display: inline-block;
+    flex-grow: 1;
+    margin-right: 0.5em;
+    padding: 0.25em 0;
+    text-align: center;
+    user-select: none;
+
+    i.fa {
+      width: 2em;
+    }
+
+    &.active {
+      background: $vintage-rust;
+    }
+
+    &:focus {
+      outline: 0;
+    }
+
+    &:last-of-type {
+      margin-right: 0;
+    }
+  }
+
+  .audioContainer button {
+    margin-left: 1em;
+  }
+}
+
+.passage {
+  line-height: 1.5em;
+}
+
+.verse-controls {
+  button {
+    background: transparent;
+    border: 0;
+    color: $vintage-gray;
+    font-size: 3em;
+    outline: 0;
+    padding: 0;
+    position: fixed;
+    transition: color 0.3s ease-in-out;
+    width: 10%;
+
+    &:hover {
+      color: $vintage-rust;
+    }
+
+    &:disabled {
+      color: $vintage-background;
+    }
+
+    &.previous {
+      top: 0;
+      bottom: 0;
+      left: 0;
+    }
+
+    &.next {
+      top: 0;
+      right: 0;
+      bottom: 0;
+    }
+  }
+}
+
+.verse-wrapper {
+  margin: 0 10%;
+  padding-bottom: 7em;
+
+  &.recallFirstText {
+    .char:not(:first-of-type) {
+      color: $transparent;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.25);
+    }
+  }
+
+}
+
+.reciteMode {
+  text-align: center;
+
+  .actions {
+    display: flex;
+    justify-content: space-around;;
+
+    button {
+      background-color: $vintage-eggy;
+      border: 0;
+      border-radius: $corner-radius;
+      color: $vintage-white;
+      display: inline-block;
+      font-family: $ui-font-stack;
+      font-size: 75%;
+      flex-grow: 1;
+      padding: 0.25em;
+      margin: 0 0.25em;
+      text-align: center;
+      text-transform: uppercase;
+      user-select: none;
+    }
+
+    .restart {
+      background: $vintage-background;
+      border: 1px solid $almost-black;
+      color: $almost-black;
+    }
+  }
+}

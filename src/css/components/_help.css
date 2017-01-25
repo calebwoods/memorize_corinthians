@@ -1,0 +1,53 @@
+article {
+  padding: $default-padding;
+
+  h1 {
+    display: inline-block;
+  }
+
+  h5 {
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+
+  a.back {
+    color: $almost-black;
+    display: inline-block;
+    font-size: 1.5em;
+    line-height: 2em;
+    margin-right: 0.5em;
+  }
+
+  a.feedback {
+    float: right;
+  }
+
+  p {
+    font-family: $text-font-stack;
+    line-height: 1.5em;
+  }
+}
+
+blockquote {
+  border-left: 2px solid $vintage-rust;
+  padding-left: 1em;
+  margin-left: 0;
+}
+
+.highlight {
+  background-color: $vintage-rust;
+  color: #ffffff;
+  font-family: $ui-font-stack;
+  padding: 0.25em 1em;
+}
+
+.btn {
+  color: #ffffff;
+  background-color: $vintage-rust;
+  display: block;
+  margin: auto;
+  padding: 0.5em 1em;
+  text-decoration: none;
+  text-align: center;
+  width: 200px;
+}
