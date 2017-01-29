@@ -3,9 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "devDependencies": {
-    "react-scripts": "0.8.5",
     "expect": "^1.10.0",
-    "jsdomify": "^3.1.0"
+    "jsdomify": "^3.1.0",
+    "node-sass": "^4.4.0",
+    "react-scripts": "0.8.5"
   },
   "dependencies": {
     "combokeys": "^2.4.4",
@@ -23,8 +24,10 @@
     "object.assign": "^4.0.1"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
+    "start": "npm run watch-css & react-scripts start",
+    "build": "npm run build-css && react-scripts build",
+    "build-css": "node-sass src/sass/main.scss src/index.css",
+    "watch-css": "npm run build-css && node-sass src/sass/main.scss src/index.css -w",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   }

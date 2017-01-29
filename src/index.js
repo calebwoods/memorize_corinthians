@@ -33,8 +33,8 @@ import HelpPage from './components/pages/HelpPage.react';
 import NotFoundPage from './components/pages/NotFound.react';
 import App from './components/App.react';
 
-// Import the CSS file, which HtmlWebpackPlugin transfers to the build folder
-import './css/main.css';
+// Import the CSS file, which node-sass generated
+import './index.css';
 
 // Create the store with the redux-thunk middleware, which allows us
 // to do asynchronous things in the actions
