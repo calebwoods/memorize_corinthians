@@ -57,39 +57,6 @@ function spannifyText(text) {
   }).join('');
 }
 
-export function verses() {
-  return rawVerses.map((verse) => {
-    return new Passage([ verse ]);
-  });
-}
-
-export function segments() {
-  const segmentIndexes = [
-    [0, 3], // 13:1-3
-    [3, 7], // 13:4-10
-    [9, 2], // 13:11-12
-    [12, 1], // 13:13
-  ];
-
-  return segmentIndexes.map((touple) => {
-    return new Passage(rawVerses.slice(touple[0], (touple[0] + touple[1])));
-  });
-}
-
-export function chapters() {
-  let _chapters = {};
-  let key = '';
-
-  rawVerses.forEach((verse) => {
-    key = verse.book + verse.chapter
-
-    if (!_chapters[key]) { _chapters[key] = []; }
-
-    _chapters[key].push(verse);
-  });
-  return _.map(_chapters, (verses) => { return new Passage(verses) });
-}
-
 const rawVerses = Object.freeze([
     {
         "book": "1 Corinthians",
@@ -170,3 +137,36 @@ const rawVerses = Object.freeze([
         "text": "So now faith, hope, and love abide, these three; but the greatest of these is love."
     }
 ]);
+
+export function verses() {
+  return rawVerses.map((verse) => {
+    return new Passage([ verse ]);
+  });
+}
+
+export function segments() {
+  const segmentIndexes = [
+    [0, 3], // 13:1-3
+    [3, 7], // 13:4-10
+    [9, 2], // 13:11-12
+    [12, 1], // 13:13
+  ];
+
+  return segmentIndexes.map((touple) => {
+    return new Passage(rawVerses.slice(touple[0], (touple[0] + touple[1])));
+  });
+}
+
+export function chapters() {
+  let _chapters = {};
+  let key = '';
+
+  rawVerses.forEach((verse) => {
+    key = verse.book + verse.chapter
+
+    if (!_chapters[key]) { _chapters[key] = []; }
+
+    _chapters[key].push(verse);
+  });
+  return _.map(_chapters, (verses) => { return new Passage(verses) });
+}

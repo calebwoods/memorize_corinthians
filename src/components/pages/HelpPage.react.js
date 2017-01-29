@@ -11,7 +11,7 @@ class HelpPage extends Component {
 
         <h3>WHAT IS THIS FOR?</h3>
         <p>
-          Throughout 2016, we will be memorizing Ephesians 1-3 as a church. This is a part of our larger churchwide effort, called <a href="http://vintagenc.com/know-2016/" target="_blank">Know 2016</a>. The church has a long history of memorizing verses, chapters, and even entire books of the bible for instruction and edification. We built this tool to assist with that edification through God's word.
+          Throughout 2017, we will be memorizing 1 Corinthians 13 as a church. This is a part of our larger churchwide effort, called <a href="http://vintagenc.com/live-2017/" target="_blank">live 2017</a>. The church has a long history of memorizing verses, chapters, and even entire books of the bible for instruction and edification. We built this tool to assist with that edification through God's word.
         </p>
 
         <hr />
@@ -51,18 +51,18 @@ class HelpPage extends Component {
         <h5>Full Text</h5>
         <p>Full text mode shows the entire text of the passage you are reviewing.</p>
         <blockquote>
-          <sup>3</sup>Blessed be the God and Father of our Lord Jesus Christ, who has blessed us in Christ with every spiritual blessing in the heavenly places,
+          <sup>3</sup>If I give away all I have, and if I deliver up my body to be burned, but have not love, I gain nothing.
         </blockquote>
 
         <h5>Partial Text</h5>
         <p>Partial text mode shows the entire text of the passage you are reviewing.</p>
         <blockquote>
-          <sup>3</sup>B______ b_ t__ G__ a__ F_____ o_ o__ L___ J____ C_____, w__ h__ b______ u_ i_ C_____ w___ e____ s________ b_______ i_ t__ h_______ p_____,
+          <sup>3</sup>I_ I g___ a___ a__ I h___, a__ i_ I d_____ u_ m_ b___ t_ b_ b_____, b__ h___ n__ l___, I g___ n______.
         </blockquote>
 
         <h5>Recite</h5>
         <p>Recite mode hides all of the text so that you can attempt to recall the entire verse yourself.</p>
-        <blockquote>Recite Ephesians 1:3</blockquote>
+        <blockquote>Recite 1 Corinthians 13:3</blockquote>
         <Link to="/" className="btn">Get Started</Link>
       </article>
     );
