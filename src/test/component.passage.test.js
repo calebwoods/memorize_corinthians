@@ -1,32 +1,10 @@
-import expect from 'expect';
-import jsdomify from 'jsdomify';
-
+import React from 'react';
+import { render, shallow } from 'enzyme';
 import { VERSE_MODE, SEGMENT_MODE, CHAPTER_MODE, RECALL_STAGES } from '../constants/AppConstants';
 import * as passage from '../passage';
-
 import { PassagePage } from '../components/pages/PassagePage.react';
 
 describe('PassagePage', () => {
-  let React, TestUtils, getInstance;
-
-  beforeEach(() => {
-    jsdomify.create();
-
-    React     = require('react');
-    TestUtils = require('react-addons-test-utils');
-
-    getInstance = (props = {}) => {
-      return TestUtils.renderIntoDocument(
-        <PassagePage data={ props } dispatch={ {} } />
-      );
-    };
-  });
-
-  afterEach(() => {
-    jsdomify.destroy();
-  });
-
-
   describe('changing modes', () => {
     let props  = {
           active: {
@@ -46,36 +24,33 @@ describe('PassagePage', () => {
     });
 
     it('should render', () => {
-      let element = getInstance(props);
+      let element = shallow(<PassagePage data={props} dispatch={ {} } />)
 
-      expect(element).toBeTruthy();
+      expect(element.text()).toBeTruthy();
     });
 
     it('should render the active verse in single mode', () => {
       props.mode       = VERSE_MODE;
 
-      let element        = getInstance(props);
-      let renderedVerses = TestUtils.scryRenderedDOMComponentsWithClass(element, 'verse-wrapper');
+      let element = render(<PassagePage data={props} dispatch={ {} } />)
 
-      expect(renderedVerses[0].innerHTML).toInclude(passage.verses()[0].formattedText());
+      expect(element.find('.verse-wrapper').html()).toMatch(passage.verses()[0].formattedText());
     });
 
     it('should render all verses for a segment in segment mode', () => {
       props.mode       = SEGMENT_MODE;
 
-      let element        = getInstance(props);
-      let renderedVerses = TestUtils.scryRenderedDOMComponentsWithClass(element, 'verse-wrapper');
+      let element = render(<PassagePage data={props} dispatch={ {} } />)
 
-      expect(renderedVerses[0].innerHTML).toInclude(passage.segments()[0].formattedText());
+      expect(element.find('.verse-wrapper').html()).toMatch(passage.segments()[0].formattedText());
     });
 
     it('should render all verses for a chapter in chapter mode', () => {
       props.mode       = CHAPTER_MODE;
 
-      let element        = getInstance(props);
-      let renderedVerses = TestUtils.scryRenderedDOMComponentsWithClass(element, 'verse-wrapper');
+      let element = render(<PassagePage data={props} dispatch={ {} } />)
 
-      expect(renderedVerses[0].innerHTML).toInclude(passage.chapters()[0].formattedText());
+      expect(element.find('.verse-wrapper').html()).toMatch(passage.chapters()[0].formattedText());
     });
   });
 });

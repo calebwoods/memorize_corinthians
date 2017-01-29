@@ -3,9 +3,12 @@
   "version": "0.1.0",
   "private": true,
   "devDependencies": {
+    "enzyme": "^2.7.1",
     "expect": "^1.10.0",
+    "jest-enzyme": "^2.1.0",
     "jsdomify": "^3.1.0",
     "node-sass": "^4.4.0",
+    "react-addons-test-utils": "^15.4.2",
     "react-scripts": "0.8.5"
   },
   "dependencies": {
@@ -30,5 +33,8 @@
     "watch-css": "npm run build-css && node-sass src/sass/main.scss src/index.css -w",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
+  },
+  "jest": {
+    "setupTestFrameworkScriptFile": "./node_modules/jest-enzyme/lib/index.js"
   }
 }
