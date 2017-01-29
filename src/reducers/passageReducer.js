@@ -53,7 +53,7 @@ function activeCollection(state) {
     return verses;
   } else if (state.mode === SEGMENT_MODE) {
     return segments;
-  } else {
+  } else if (state.mode === CHAPTER_MODE){
     return chapters;
   }
 }

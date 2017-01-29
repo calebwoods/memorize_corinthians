@@ -96,17 +96,17 @@ export class PassagePage extends Component {
         <KeyboardShortcutHUD />
         <div className="top-nav">
           <div className="mode-controls">
-            <button className={ mode == VERSE_MODE ? "active" : ""}
+            <button className={ mode === VERSE_MODE ? "active" : ""}
                     onClick={() => { dispatch(asyncChangeMode(VERSE_MODE)) }}>
               {verses[active[VERSE_MODE]].shortMetadata()}
             </button>
 
-            <button className={ mode == SEGMENT_MODE ? "active" : ""}
+            <button className={ mode === SEGMENT_MODE ? "active" : ""}
                     onClick={() => { dispatch(asyncChangeMode(SEGMENT_MODE)) }}>
               {segments[active[SEGMENT_MODE]].shortMetadata()}
             </button>
 
-            <button className={ mode == CHAPTER_MODE ? "active" : ""}
+            <button className={ mode === CHAPTER_MODE ? "active" : ""}
                     onClick={() => { dispatch(asyncChangeMode(CHAPTER_MODE)) }}>
               {chapters[active[CHAPTER_MODE]].bookAndChapter()}
             </button>
@@ -151,17 +151,17 @@ export class PassagePage extends Component {
 
         <div className="stage-controls">
           <button
-            className={ recallStage == RECALL_STAGES.FULL ? "active" : ""}
+            className={ recallStage === RECALL_STAGES.FULL ? "active" : ""}
             onClick={() => { dispatch(asyncChangeRecall(RECALL_STAGES.FULL)) }}
           >KNOW</button>
 
           <button
-            className={ recallStage == RECALL_STAGES.FIRST ? "active" : ""}
+            className={ recallStage === RECALL_STAGES.FIRST ? "active" : ""}
             onClick={() => { dispatch(asyncChangeRecall(RECALL_STAGES.FIRST)) }}
           >K___</button>
 
           <button
-            className={ recallStage == RECALL_STAGES.NONE ? "active" : ""}
+            className={ recallStage === RECALL_STAGES.NONE ? "active" : ""}
             onClick={() => { dispatch(asyncChangeRecall(RECALL_STAGES.NONE)) }}
           >____</button>
 

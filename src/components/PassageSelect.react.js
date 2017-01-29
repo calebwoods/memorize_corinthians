@@ -15,7 +15,7 @@ class PassageSelect extends Component {
   }
 
   changePassage(e) {
-    this.props.dispatch(asyncNavigateIndex(parseInt(e.target.value)));
+    this.props.dispatch(asyncNavigateIndex(parseInt(e.target.value, 0)));
   }
 
   render() {
