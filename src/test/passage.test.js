@@ -205,11 +205,9 @@ describe('Passage', () => {
   });
 
   describe('chapters()', () => {
-    it('breaks things into 3 chapters', () => {
-      expect(chapters().length).toEqual(3);
-      expect(chapters()[0].metadata()).toEqual('Ephesians 1:1-23');
-      expect(chapters()[1].metadata()).toEqual('Ephesians 2:1-22');
-      expect(chapters()[2].metadata()).toEqual('Ephesians 3:1-21');
+    it('breaks things into chapters', () => {
+      expect(chapters().length).toEqual(1);
+      expect(chapters()[0].metadata()).toEqual('1 Corinthians 13:1-13');
     });
   });
 });
