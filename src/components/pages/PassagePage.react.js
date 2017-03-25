@@ -153,12 +153,12 @@ export class PassagePage extends Component {
           <button
             className={ recallStage === RECALL_STAGES.FULL ? "active" : ""}
             onClick={() => { dispatch(asyncChangeRecall(RECALL_STAGES.FULL)) }}
-          >KNOW</button>
+          >LIVE</button>
 
           <button
             className={ recallStage === RECALL_STAGES.FIRST ? "active" : ""}
             onClick={() => { dispatch(asyncChangeRecall(RECALL_STAGES.FIRST)) }}
-          >K___</button>
+          >L___</button>
 
           <button
             className={ recallStage === RECALL_STAGES.NONE ? "active" : ""}
