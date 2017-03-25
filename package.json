@@ -7,17 +7,19 @@
     "enzyme": "^2.7.1",
     "expect": "^1.10.0",
     "gh-pages": "^0.12.0",
-    "jest-enzyme": "^2.1.0",
+    "jest-enzyme": "^2.1.2",
     "jsdomify": "^3.1.0",
     "node-sass": "^4.4.0",
     "react-addons-test-utils": "^15.4.2",
-    "react-scripts": "0.8.5"
+    "react-scripts": "0.9.4"
   },
   "dependencies": {
     "combokeys": "^2.4.4",
     "fastclick": "^1.0.6",
     "history": "3.2.1",
+    "jest": "^19.0.2",
     "lodash": "^4.5.0",
+    "object.assign": "^4.0.1",
     "react": "^15.4.2",
     "react-dom": "^15.4.2",
     "react-ga": "^1.2.0",
@@ -25,8 +27,7 @@
     "react-router": "^3.0.2",
     "react-swipeable": "^3.1.0",
     "redux": "^3.0.0",
-    "redux-thunk": "^1.0.0",
-    "object.assign": "^4.0.1"
+    "redux-thunk": "^1.0.0"
   },
   "scripts": {
     "start": "npm run watch-css & react-scripts start",
