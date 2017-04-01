@@ -24,8 +24,9 @@ export class PassagePage extends Component {
     combokeys.bind('s', () => { this.props.dispatch(asyncChangeMode(SEGMENT_MODE)) });
     combokeys.bind('c', () => { this.props.dispatch(asyncChangeMode(CHAPTER_MODE)) });
     combokeys.bind('1', () => { this.props.dispatch(asyncChangeRecall(RECALL_STAGES.FULL)) });
-    combokeys.bind('2', () => { this.props.dispatch(asyncChangeRecall(RECALL_STAGES.FIRST)) });
-    combokeys.bind('3', () => { this.props.dispatch(asyncChangeRecall(RECALL_STAGES.NONE)) });
+    combokeys.bind('2', () => { this.props.dispatch(asyncChangeRecall(RECALL_STAGES.WORDS)) });
+    combokeys.bind('3', () => { this.props.dispatch(asyncChangeRecall(RECALL_STAGES.FIRST)) });
+    combokeys.bind('4', () => { this.props.dispatch(asyncChangeRecall(RECALL_STAGES.NONE)) });
   }
 
   componentWillUnmount() {
@@ -38,6 +39,10 @@ export class PassagePage extends Component {
     combokeys.unbind('1');
     combokeys.unbind('2');
     combokeys.unbind('3');
+  }
+
+  getRandomNumber(min, max) {
+    return Math.floor(Math.random() * (max - min)) + min;
   }
 
   renderPassageText(dispatch, recallStage, activePassage) {
@@ -63,6 +68,23 @@ export class PassagePage extends Component {
             </button>
           </div>
         </div>
+      )
+    } else if (recallStage === RECALL_STAGES.WORDS) {
+      const missingWordModulo = this.getRandomNumber(2, 5);
+      const e = React.createElement;
+      let wordIndex = 0;
+      return (
+        <p>
+          { activePassage.structuredText().map((textObject, index) => {
+            let className = '';
+            if (textObject.type === 'word') {
+              wordIndex++;
+              className = wordIndex % missingWordModulo === 0 ? 'missing' : '';
+            }
+
+            return e(textObject.tag, { className, key: index }, textObject.text)
+          })}
+        </p>
       )
     } else {
       return (
@@ -154,6 +176,13 @@ export class PassagePage extends Component {
             className={ recallStage === RECALL_STAGES.FULL ? "active" : ""}
             onClick={() => { dispatch(asyncChangeRecall(RECALL_STAGES.FULL)) }}
           >LIVE</button>
+
+          <button
+            className={ recallStage === RECALL_STAGES.WORDS ? "active" : ""}
+            onClick={() => { dispatch(asyncChangeRecall(RECALL_STAGES.WORDS)) }}
+          >
+            L_V_
+          </button>
 
           <button
             className={ recallStage === RECALL_STAGES.FIRST ? "active" : ""}

@@ -631,6 +631,9 @@ blockquote {
   .verse-wrapper.recallFirstText .char:not(:first-of-type) {
     color: transparent;
     border-bottom: 1px solid rgba(0, 0, 0, 0.25); }
+  .verse-wrapper.recallWords .missing {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.25);
+    color: transparent; }
 
 .reciteMode {
   text-align: center; }

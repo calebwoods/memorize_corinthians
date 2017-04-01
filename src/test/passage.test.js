@@ -6,7 +6,7 @@ const oneVerse = Object.freeze([
     "book": "Ephesians",
     "chapter": 1,
     "verse": 1,
-    "text": "Text, of verse 1"
+    "text": "Text, of verse one"
   }
 ]);
 const twoVerses = Object.freeze([
@@ -14,13 +14,13 @@ const twoVerses = Object.freeze([
     "book": "Ephesians",
     "chapter": 1,
     "verse": 1,
-    "text": "Text, of verse 1"
+    "text": "Text, of verse one"
   },
   {
     "book": "Ephesians",
     "chapter": 1,
     "verse": 2,
-    "text": "and verse 2 ends like this."
+    "text": "and verse two ends like this."
   }
 ]);
 const crossChapterVerses = Object.freeze([
@@ -28,13 +28,13 @@ const crossChapterVerses = Object.freeze([
     "book": "Ephesians",
     "chapter": 1,
     "verse": 1,
-    "text": "Text, of verse 1"
+    "text": "Text, of verse one"
   },
   {
     "book": "Ephesians",
     "chapter": 2,
     "verse": 2,
-    "text": "and verse 2 ends like this."
+    "text": "and verse two ends like this."
   }
 ]);
 
@@ -121,12 +121,12 @@ describe('Passage', () => {
           '<span class="char">x</span>' +
           '<span class="char">t</span>' +
         '</span>' +
-        '<span class="word">, </span>' +
+        '<span class="space">, </span>' +
         '<span class="word">' +
           '<span class="char">o</span>' +
           '<span class="char">f</span>' +
         '</span>' +
-        '<span class="word"> </span>' +
+        '<span class="space"> </span>' +
         '<span class="word">' +
           '<span class="char">v</span>' +
           '<span class="char">e</span>' +
@@ -134,8 +134,12 @@ describe('Passage', () => {
           '<span class="char">s</span>' +
           '<span class="char">e</span>' +
         '</span>' +
-        '<span class="word"> </span>' +
-        '<span class="word">1</span>');
+        '<span class="space"> </span>' +
+        '<span class="word">' +
+          '<span class="char">o</span>' +
+          '<span class="char">n</span>' +
+          '<span class="char">e</span>' +
+        '</span>');
     });
 
     it('multiple verses', () => {
@@ -147,12 +151,12 @@ describe('Passage', () => {
           '<span class="char">x</span>' +
           '<span class="char">t</span>' +
         '</span>' +
-        '<span class="word">, </span>' +
+        '<span class="space">, </span>' +
         '<span class="word">' +
           '<span class="char">o</span>' +
           '<span class="char">f</span>' +
         '</span>' +
-        '<span class="word"> </span>' +
+        '<span class="space"> </span>' +
         '<span class="word">' +
           '<span class="char">v</span>' +
           '<span class="char">e</span>' +
@@ -160,16 +164,20 @@ describe('Passage', () => {
           '<span class="char">s</span>' +
           '<span class="char">e</span>' +
         '</span>' +
-        '<span class="word"> </span>' +
-        '<span class="word">1</span>' +
-        '<span class="word"> </span>' +
+        '<span class="space"> </span>' +
+        '<span class="word">' +
+          '<span class="char">o</span>' +
+          '<span class="char">n</span>' +
+          '<span class="char">e</span>' +
+        '</span>' +
+        '<span class="space"> </span>' +
         '<sup>2</sup>' +
         '<span class="word">' +
           '<span class="char">a</span>' +
           '<span class="char">n</span>' +
           '<span class="char">d</span>' +
         '</span>' +
-        '<span class="word"> </span>' +
+        '<span class="space"> </span>' +
         '<span class="word">' +
           '<span class="char">v</span>' +
           '<span class="char">e</span>' +
@@ -177,31 +185,77 @@ describe('Passage', () => {
           '<span class="char">s</span>' +
           '<span class="char">e</span>' +
         '</span>' +
-        '<span class="word"> </span>' +
-        '<span class="word">2</span>' +
-        '<span class="word"> </span>' +
+        '<span class="space"> </span>' +
+        '<span class="word">' +
+          '<span class="char">t</span>' +
+          '<span class="char">w</span>' +
+          '<span class="char">o</span>' +
+        '</span>' +
+        '<span class="space"> </span>' +
         '<span class="word">' +
           '<span class="char">e</span>' +
           '<span class="char">n</span>' +
           '<span class="char">d</span>' +
           '<span class="char">s</span>' +
         '</span>' +
-        '<span class="word"> </span>' +
+        '<span class="space"> </span>' +
         '<span class="word">' +
           '<span class="char">l</span>' +
           '<span class="char">i</span>' +
           '<span class="char">k</span>' +
           '<span class="char">e</span>' +
         '</span>' +
-        '<span class="word"> </span>' +
+        '<span class="space"> </span>' +
         '<span class="word">' +
           '<span class="char">t</span>' +
           '<span class="char">h</span>' +
           '<span class="char">i</span>' +
           '<span class="char">s</span>' +
         '</span>' +
-        '<span class="word">.</span>');
+        '<span class="space">.</span>');
     });
+  });
+
+  describe('#stucturedText', () => {
+    it('single verse', () => {
+      expect(new Passage(oneVerse).structuredText()).toEqual([
+          { tag: 'sup', type: 'sup', text: '1' },
+          { tag: 'span', type: 'word', text: 'Text' },
+          { tag: 'span', type: 'space', text: ', ' },
+          { tag: 'span', type: 'word', text: 'of' },
+          { tag: 'span', type: 'space', text: ' ' },
+          { tag: 'span', type: 'word', text: 'verse' },
+          { tag: 'span', type: 'space', text: ' ' },
+          { tag: 'span', type: 'word', text: 'one' }
+        ]);
+    });
+
+    it('multiple verses', () => {
+      expect(new Passage(twoVerses).structuredText()).toEqual([
+          { tag: 'sup', type: 'sup', text: '1' },
+          { tag: 'span', type: 'word', text: 'Text' },
+          { tag: 'span', type: 'space', text: ', ' },
+          { tag: 'span', type: 'word', text: 'of' },
+          { tag: 'span', type: 'space', text: ' ' },
+          { tag: 'span', type: 'word', text: 'verse' },
+          { tag: 'span', type: 'space', text: ' ' },
+          { tag: 'span', type: 'word', text: 'one' },
+          { tag: 'span', type: 'space', text: ' ' },
+          { tag: 'sup', type: 'sup', text: '2' },
+          { tag: 'span', type: 'word', text: 'and' },
+          { tag: 'span', type: 'space', text: ' ' },
+          { tag: 'span', type: 'word', text: 'verse' },
+          { tag: 'span', type: 'space', text: ' ' },
+          { tag: 'span', type: 'word', text: 'two' },
+          { tag: 'span', type: 'space', text: ' ' },
+          { tag: 'span', type: 'word', text: 'ends' },
+          { tag: 'span', type: 'space', text: ' ' },
+          { tag: 'span', type: 'word', text: 'like' },
+          { tag: 'span', type: 'space', text: ' ' },
+          { tag: 'span', type: 'word', text: 'this' },
+          { tag: 'span', type: 'space', text: '.' }
+        ]);
+      });
   });
 
   describe('chapters()', () => {

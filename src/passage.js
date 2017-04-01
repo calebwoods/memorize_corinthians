@@ -46,14 +46,40 @@ export class Passage {
   formattedText() {
     return this._verses.map(function (rawVerse) {
       return '<sup>' + rawVerse.verse + '</sup>' + spannifyText(rawVerse.text);
-    }).join('<span class="word"> </span>');
+    }).join('<span class="space"> </span>');
+  }
+
+  structuredText() {
+    const structuredMap = this._verses.map(function (rawVerse) {
+      let textObjects = [{ tag: 'sup', type: 'sup', text: rawVerse.verse.toString() }]
+      rawVerse.text.split(/\b/).forEach((word) => {
+        let type = 'word';
+        if (word.match(/^\s|\.|,\s|,$/)) {
+          type = 'space';
+        }
+        textObjects.push({ tag: 'span', type: type, text: word });
+      });
+      return textObjects;
+    });
+
+    const reducedStucture = structuredMap.reduce((memo, array) => {
+      array.forEach((textObject) => memo.push(textObject));
+      memo.push({ tag: 'span', type: 'space', text: ' ' });
+      return memo;
+    }, []);
+
+    return reducedStucture.slice(0, reducedStucture.length - 1)
   }
 }
 
 function spannifyText(text) {
   return text.split(/\b/).map((word) => {
     let spannifiedWord = word.replace(/([A-Za-z])/g, '<span class="char">$1</span>');
-    return '<span class="word">' + spannifiedWord + '</span>';
+    let className = 'word';
+    if (spannifiedWord.match(/^\s|\.|,\s|,$/)) {
+      className = 'space';
+    }
+    return '<span class="' + className + '">' + spannifiedWord + '</span>';
   }).join('');
 }
 
