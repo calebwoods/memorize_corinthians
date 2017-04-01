@@ -7,17 +7,28 @@
     "enzyme": "^2.7.1",
     "expect": "^1.10.0",
     "gh-pages": "^0.12.0",
-    "jest-enzyme": "^2.1.2",
+    "jest-enzyme": "^3.0.0",
     "jsdomify": "^3.1.0",
     "node-sass": "^4.4.0",
     "react-addons-test-utils": "^15.4.2",
-    "react-scripts": "0.9.4"
+    "react-scripts": "^0.9.5",
+    "vinyl-fs": "^2.4.4",
+    "vinyl-ftp": "^0.6.0"
   },
   "dependencies": {
+    "babel-jest": "^19.0.0",
     "combokeys": "^2.4.4",
     "fastclick": "^1.0.6",
     "history": "3.2.1",
     "jest": "^19.0.2",
+    "jest-changed-files": "^19.0.2",
+    "jest-cli": "^19.0.2",
+    "jest-environment-jsdom": "^19.0.2",
+    "jest-resolve": "^19.0.2",
+    "jest-resolve-dependencies": "^19.0.0",
+    "jest-runtime": "^19.0.2",
+    "jest-util": "^19.0.2",
+    "jsdom": "^9.12.0",
     "lodash": "^4.5.0",
     "object.assign": "^4.0.1",
     "react": "^15.4.2",
@@ -37,7 +48,8 @@
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "deploy": "gh-pages -d build",
+    "deploy:production": "npm run build && node deploy.production.js"
   },
   "jest": {
     "setupTestFrameworkScriptFile": "./node_modules/jest-enzyme/lib/index.js"
