@@ -130,6 +130,18 @@
 .reciteMode {
   text-align: center;
 
+  textarea {
+    width: 100%
+  }
+
+  .grade .added {
+    color: green;
+  }
+
+  .grade .removed {
+    color: red;
+  }
+
   .actions {
     display: flex;
     justify-content: space-around;;

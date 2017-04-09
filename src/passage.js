@@ -43,6 +43,10 @@ export class Passage {
     return encodeURI(this.baseAudioUrl() + this.metadata() + '&output-format=mp3');
   }
 
+  text() {
+    return this._verses.map(verse => verse.text).join(' ');
+  }
+
   formattedText() {
     return this._verses.map(function (rawVerse) {
       return '<sup>' + rawVerse.verse + '</sup>' + spannifyText(rawVerse.text);

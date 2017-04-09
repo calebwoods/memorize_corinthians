@@ -6,10 +6,11 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router';
 import Combokeys from 'combokeys'
 
-import { asyncNavigateNext, asyncNavigatePrevious, asyncCompletePassage, asyncChangeMode, asyncChangeRecall } from '../../actions/AppActions';
+import { asyncNavigateNext, asyncNavigatePrevious, asyncChangeMode, asyncChangeRecall } from '../../actions/AppActions';
 import { VERSE_MODE, SEGMENT_MODE, CHAPTER_MODE, RECALL_STAGES } from '../../constants/AppConstants';
 
 import AudioPlayer from '../AudioPlayer.react';
+import ReciteGrader from '../ReciteGrader.react';
 import PassageSelect from '../PassageSelect.react';
 import KeyboardShortcutHUD from '../KeyboardShortcutHUD.react';
 import Swipeable from 'react-swipeable';
@@ -47,28 +48,7 @@ export class PassagePage extends Component {
 
   renderPassageText(dispatch, recallStage, activePassage) {
     if (recallStage === RECALL_STAGES.NONE) {
-      return (
-        <div className="reciteMode">
-          <h3>Recite the passage</h3>
-
-          <p>How did you do?</p>
-
-          <div className="actions">
-            <button
-              className="restart"
-              onClick={() => { dispatch(asyncChangeRecall(RECALL_STAGES.FULL)) }}
-            >
-              <i className="fa fa-undo"></i> More practice
-            </button>
-            <button
-              className="complete"
-              onClick={() => { dispatch(asyncCompletePassage()) }}
-            >
-              <i className="fa fa-check"></i> Nailed it!
-            </button>
-          </div>
-        </div>
-      )
+      return <ReciteGrader dispatch={dispatch} passage={activePassage} />
     } else if (recallStage === RECALL_STAGES.WORDS) {
       const missingWordModulo = this.getRandomNumber(2, 5);
       const e = React.createElement;
