@@ -21,9 +21,10 @@ export const CHAPTER_MODE = 'CHAPTER_MODE';
 
 export const CHANGE_RECALL = 'CHANGE_RECALL';
 export const RECALL_STAGES = {
-  FULL : 'readText',
-  FIRST: 'recallFirstText',
-  NONE : 'recallNoneText'
+  FULL  : 'readText',
+  WORDS : 'recallWords',
+  FIRST : 'recallFirstText',
+  NONE  : 'recallNoneText'
 };
 
 export const RESTORE_STATE = 'RESTORE_STATE';
