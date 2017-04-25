@@ -2,7 +2,7 @@ import ga from 'react-ga';
 import { NODE_ENV } from './env';
 
 if (NODE_ENV !== 'test') {
-  ga.initialize('UA-74107295-1', { debug: NODE_ENV === 'development' });
+  ga.initialize('UA-97917335-1', { debug: NODE_ENV === 'development' });
 }
 
 export const recordPageview = () => {
