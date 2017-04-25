@@ -19,15 +19,24 @@ class PassageSelect extends Component {
   }
 
   render() {
-    return (
-      <select
-        ref="passage-select"
-        value={ this.props.selectedIndex }
-        onChange={ this.changePassage.bind(this) }
-      >
-        { this.props.collection.map((passage, index) => { return this.renderOption(passage, index, this.props.selectedIndex) }) }
-      </select>
-    )
+    if (this.props.collection.length > 1) {
+      return (
+        <select
+          ref="passage-select"
+          value={ this.props.selectedIndex }
+          onChange={ this.changePassage.bind(this) }
+          className="passage-select"
+        >
+          { this.props.collection.map((passage, index) => { return this.renderOption(passage, index, this.props.selectedIndex) }) }
+        </select>
+      )
+    } else {
+      return (
+        <span className="passage-select">
+          { this.props.collection[this.props.selectedIndex].metadata() }
+        </span>
+      )
+    }
   }
 }
 

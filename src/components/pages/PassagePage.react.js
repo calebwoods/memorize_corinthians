@@ -73,6 +73,27 @@ export class PassagePage extends Component {
     }
   }
 
+  renderVerseControls(dispatch) {
+    const { mode } = this.props.data;
+    if (mode !== CHAPTER_MODE) {
+      return (
+        <div className="verse-controls">
+          <button className="previous"
+                  title="Previous"
+                  onClick={() => { dispatch(asyncNavigatePrevious()) }}>
+            <i className="fa fa-angle-left"></i>
+          </button>
+
+          <button className="next"
+                  title="Next"
+                  onClick={() => { dispatch(asyncNavigateNext()) }}>
+            <i className="fa fa-angle-right"></i>
+          </button>
+        </div>
+      )
+    }
+}
+
   render() {
     const dispatch = this.props.dispatch;
     const { active, verses, segments, chapters, mode, recallStage, isAudioPlaying } = this.props.data;
@@ -125,19 +146,7 @@ export class PassagePage extends Component {
           </div>
         </div>
 
-        <div className="verse-controls">
-          <button className="previous"
-                  title="Previous"
-                  onClick={() => { dispatch(asyncNavigatePrevious()) }}>
-            <i className="fa fa-angle-left"></i>
-          </button>
-
-          <button className="next"
-                  title="Next"
-                  onClick={() => { dispatch(asyncNavigateNext()) }}>
-            <i className="fa fa-angle-right"></i>
-          </button>
-        </div>
+        { this.renderVerseControls() }
 
         <div>
           <Swipeable
