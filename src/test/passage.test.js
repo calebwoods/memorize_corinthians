@@ -1,5 +1,5 @@
 import expect from 'expect';
-import { Passage, chapters } from '../passage'
+import { Passage, chapters } from '../passage';
 
 const oneVerse = Object.freeze([
   {
