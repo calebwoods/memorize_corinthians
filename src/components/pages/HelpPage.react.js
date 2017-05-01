@@ -7,7 +7,7 @@ class HelpPage extends Component {
       <article className="wrapper">
         <Link to="/" className="back"><i className="fa fa-arrow-left"></i></Link>
         <h1>Help</h1>
-        <a className="feedback" href="https://vintage21.wufoo.com/forms/ephesians-feedback/" target="_blank">Feedback</a>
+        <a className="feedback" href=" https://vintage21.wufoo.com/forms/corinthians-feedback/" target="_blank">Feedback</a>
 
         <h3>WHAT IS THIS FOR?</h3>
         <p>
