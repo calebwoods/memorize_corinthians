@@ -177,8 +177,8 @@ export function verses() {
 export function segments() {
   const segmentIndexes = [
     [0, 3], // 13:1-3
-    [3, 7], // 13:4-10
-    [10, 2], // 13:11-12
+    [3, 4], // 13:4-7
+    [7, 5], // 13:8-12
     [12, 1], // 13:13
   ];
 
