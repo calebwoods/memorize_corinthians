@@ -146,7 +146,7 @@ export class PassagePage extends Component {
           </div>
         </div>
 
-        { this.renderVerseControls() }
+        { this.renderVerseControls(dispatch) }
 
         <div>
           <Swipeable
