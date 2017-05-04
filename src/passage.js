@@ -80,7 +80,7 @@ function spannifyText(text) {
   return text.split(/\b/).map((word) => {
     let spannifiedWord = word.replace(/([A-Za-z])/g, '<span class="char">$1</span>');
     let className = 'word';
-    if (spannifiedWord.match(/^\s|\.|,\s|,$/)) {
+    if (spannifiedWord.match(/^\s|\.|,\s|,|;\s|;$/)) {
       className = 'space';
     }
     return '<span class="' + className + '">' + spannifiedWord + '</span>';
