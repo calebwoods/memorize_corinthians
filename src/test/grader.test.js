@@ -30,7 +30,7 @@ describe('Grader', () => {
     });
 
     it('ignores case and punctuation', () => {
-      const source = "Text, of verse one. And another verse.";
+      const source = "Text, of verse one. And; another verse.";
       const comparison = "Text of verse one and another verse with extra";
       const grader = new Grader(source, comparison)
 
