@@ -44,7 +44,7 @@ export default class Grader {
 
   _filteredWords(text) {
     return text.split(/\b/).filter((word) => {
-      return !word.match(/^\s|\.|,\s|,$/);
+      return !word.match(/^\s|\.|,\s|,|;\s|;$/);
     }).map((word) => {
       return word.toLowerCase();
     });
