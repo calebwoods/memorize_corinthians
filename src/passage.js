@@ -110,7 +110,7 @@ const rawVerses = Object.freeze([
         "book": "1 Corinthians",
         "chapter": 13,
         "verse": 4,
-        "text": "Love is patient and kind; love does not envy or boast; it his not arrogant"
+        "text": "Love is patient and kind; love does not envy or boast; it is not arrogant"
     },
     {
         "book": "1 Corinthians",
